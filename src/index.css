@@ -4,5 +4,9 @@
 
 body {
   /* margin: 0; */
-  /* margin: 1rem; */
+  margin: 1rem;
+}
+
+h1 {
+  margin: 0;
 }

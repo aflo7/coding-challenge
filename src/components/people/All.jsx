@@ -1,23 +1,15 @@
-// import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-
+import '../../styles/all.scss';
+import { Checkbox } from 'primereact/checkbox';
 const All = () => {
   const [people, setPeople] = useState([]);
-  const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
-    // https://test.epdet.org/api/applicant
     axios.get('https://test.epdet.org/api/applicant').then((response) => {
       setPeople(response.data);
-      // console.log(response.data);
     });
   }, []);
-
-  
-
 
   return (
     <div className="all-people-wrapper">
@@ -34,13 +26,14 @@ const All = () => {
               <tr className="person-row" key={i}>
                 <td>{person.name}</td>
                 <td>{person.date}</td>
-                <td>{person.check.toString()}</td>
+                <td>
+                  <Checkbox checked={person.check}></Checkbox>
+                </td>
               </tr>
             );
           })}
         </tbody>
       </table>
-
     </div>
   );
 };

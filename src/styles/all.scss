@@ -1,0 +1,27 @@
+.all-people-wrapper {
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    // border: 5px solid red;
+    // border-radius: 100px;
+  }
+  
+  td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 0.5rem;
+  }
+
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  .person-row {
+    cursor: pointer;
+  }
+
+  .person-row:hover {
+    background-color: rgb(169, 169, 169);
+  }
+
+}

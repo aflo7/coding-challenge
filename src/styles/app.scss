@@ -1,40 +1,25 @@
 .app-wrapper {
   
   font-family: verdana, sans-serif;
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
   
-  td, th {
-    border: 1px solid black;
-    text-align: left;
-    padding: 0.5rem;
-  }
-
   
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-  .person-row {
-    cursor: pointer;
-  }
 
-  .person-row:hover {
-    background-color: rgb(169, 169, 169);
-  }
+ 
+}
 
-  .back-link {
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .link {
     border: 1px solid black;
     padding: 1rem;
     border-radius: 5px;
     cursor: pointer;
-    // margin: 1rem;
   }
   
-  .back-link:hover {
+  .link:hover {
     background-color: lightgray;
   }
-
- 
 }
