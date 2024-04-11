@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
-// import '../styles/delete.scss';
-import '../../styles/delete.scss'
-// import axios from 'axios';
+import axios from 'axios';
+import '../../styles/delete.scss';
 
 const Delete = () => {
   const [id, setId] = useState('');
 
   const deletePersonById = () => {
-    if (!id) return
+    if (!id) return;
 
     // axios.delete(`https://test.epdet.org/api/applicant/id=${id}`)
     // .then(function (response) {
@@ -18,7 +17,7 @@ const Delete = () => {
     // .catch(function (error) {
     //   console.log(error);
     // });
-  }
+  };
 
   return (
     <div className="delete-wrapper">
@@ -29,7 +28,7 @@ const Delete = () => {
         value={id}
         onChange={(e) => setId(e.target.value)}
       />
-      <Button onClick={deletePersonById} label="Delete" severity="danger"/>
+      <Button onClick={deletePersonById} label="Delete" severity="danger" />
     </div>
   );
 };

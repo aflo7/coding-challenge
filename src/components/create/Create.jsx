@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
-import '../styles/create.scss';
 import axios from 'axios';
+import '../../styles/create.scss';
 
 const Create = () => {
   const [name, setName] = useState('');
@@ -23,16 +23,11 @@ const Create = () => {
     });
   }
 
-  useEffect(() => {
-    console.log(name);
-  }, [name]);
-
   return (
     <div className="create-wrapper">
       <div>Name</div>
 
       <InputText
-        // placeholder="Name"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />

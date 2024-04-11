@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
+import { Checkbox } from 'primereact/checkbox';
 import axios from 'axios';
 import '../../styles/all.scss';
-import { Checkbox } from 'primereact/checkbox';
+
 const All = () => {
   const [people, setPeople] = useState([]);
 

@@ -1,35 +1,32 @@
-import { useState, useEffect } from 'react';
-import './styles/app.scss';
-// import axios from 'axios';
 import { HashRouter } from 'react-router-dom';
 import { Route, Link } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
+import { MdMenu } from 'react-icons/md';
 import All from './components/people/All';
 import Person from './components/people/Person';
-import Create from './components/Create';
+import Create from './components/create/Create';
 import Delete from './components/delete/Delete';
 import 'primereact/resources/themes/lara-light-cyan/theme.css';
-import { MdMenu } from 'react-icons/md';
+import './styles/app.scss';
 
-function App() {
-  const Home = () => {
-    return (
-      <div className="home-wrapper">
-        <Link to="/people/all">
-          <div className="link">Search</div>
-        </Link>
+const Home = () => {
+  return (
+    <div className="home-wrapper">
+      <Link to="/people/all">
+        <div className="link">Search</div>
+      </Link>
 
-        <Link to="/person/create">
-          <div className="link">Create</div>
-        </Link>
+      <Link to="/person/create">
+        <div className="link">Create</div>
+      </Link>
 
-        <Link to="/person/delete">
-          <div className="link">Delete</div>
-        </Link>
-      </div>
-    );
-  };
-
+      <Link to="/person/delete">
+        <div className="link">Delete</div>
+      </Link>
+    </div>
+  );
+};
+const App = () => {
   return (
     <>
       <nav>
@@ -51,6 +48,6 @@ function App() {
       </div>
     </>
   );
-}
+};
 
 export default App;
