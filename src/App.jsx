@@ -6,7 +6,8 @@ import All from './components/people/All';
 import Person from './components/people/Person';
 import Create from './components/create/Create';
 import Delete from './components/delete/Delete';
-import 'primereact/resources/themes/lara-light-cyan/theme.css';
+// import 'primereact/resources/themes/viva-light/theme.css';
+import 'primereact/resources/themes/bootstrap4-light-blue/theme.css'
 import './styles/app.scss';
 
 const Home = () => {
