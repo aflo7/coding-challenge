@@ -11,15 +11,13 @@ const Delete = () => {
   const deletePersonById = () => {
     if (!id) return
 
-    axios.delete('https://test.epdet.org/api/applicant', {
-      id
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    // axios.delete(`https://test.epdet.org/api/applicant/id=${id}`)
+    // .then(function (response) {
+    //   console.log(response);
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
   }
 
   return (
