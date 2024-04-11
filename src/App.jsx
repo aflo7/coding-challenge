@@ -43,7 +43,7 @@ const App = () => {
             <Route path="/person/delete" element={<Delete />} />
 
             <Route path="/people/all" element={<All />} />
-            <Route path="/people/:id" element={<Person />} />
+            <Route path="/people" element={<Person />} />
           </Routes>
         </HashRouter>
       </div>

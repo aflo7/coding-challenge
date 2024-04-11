@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Checkbox } from 'primereact/checkbox';
 import axios from 'axios';
 import '../../styles/all.scss';
+import { Route, Link } from 'react-router-dom';
 
 const All = () => {
   const [people, setPeople] = useState([]);
@@ -25,7 +26,9 @@ const All = () => {
           {people.map((person, i) => {
             return (
               <tr className="person-row" key={i}>
-                <td>{person.name}</td>
+                <td>
+                  <Link to={`/people?id=${person._id}`}>{person.name}</Link>
+                </td>
                 <td>{person.date}</td>
                 <td>
                   <Checkbox checked={person.check}></Checkbox>

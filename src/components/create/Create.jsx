@@ -38,12 +38,10 @@ const Create = () => {
       })
       .then(function (response) {
         success();
-        console.log(response);
         setName('')
       })
       .catch(function (error) {
         showErrorMessage();
-        console.log(error);
         setName('')
 
       });
