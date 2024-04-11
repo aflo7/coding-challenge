@@ -3,7 +3,7 @@ import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 // import '../styles/delete.scss';
 import '../../styles/delete.scss'
-import axios from 'axios';
+// import axios from 'axios';
 
 const Delete = () => {
   const [id, setId] = useState('');

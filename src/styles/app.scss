@@ -1,10 +1,6 @@
 .app-wrapper {
-  
   font-family: verdana, sans-serif;
-  
-  
-
- 
+  padding: 1rem;
 }
 
 .home-wrapper {
@@ -18,8 +14,29 @@
     border-radius: 5px;
     cursor: pointer;
   }
-  
+
   .link:hover {
     background-color: lightgray;
   }
+}
+
+nav {
+  background-color: lightgray;
+  padding: 1rem;
+}
+
+.menu-wrapper {
+  border: 1px solid black;
+  width: fit-content;
+  display: flex;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.menu-wrapper:hover {
+  background-color: rgb(184, 184, 184);
+}
+
+.menu-icon {
+  font-size: 2rem;
 }
