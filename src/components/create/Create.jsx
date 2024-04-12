@@ -5,9 +5,12 @@ import axios from 'axios';
 import '../../styles/create.scss';
 import { Toast } from 'primereact/toast';
 
+import { Checkbox } from 'primereact/checkbox';
+
 const Create = () => {
   const [name, setName] = useState('');
   const toast = useRef(null);
+  const [checked, setChecked] = useState(false);
 
   const success = () => {
     toast.current.show({
@@ -34,16 +37,16 @@ const Create = () => {
       .post('https://test.epdet.org/api/applicant', {
         name: name,
         date: new Date(),
-        check: false
+        check: checked
       })
       .then(function (response) {
         success();
-        setName('')
+        setName('');
+        setChecked(false)
       })
       .catch(function (error) {
         showErrorMessage();
-        setName('')
-
+        setName('');
       });
   };
 
@@ -52,13 +55,24 @@ const Create = () => {
       <Toast ref={toast} />
 
       <div className="create-wrapper">
-        <div>Name</div>
+        <div className='name-wrapper'>
+          <div>Name</div>
 
-        <InputText
-          required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+          <InputText
+            className="w-full"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div className="checkbox-wrapper">
+          <Checkbox
+            inputId="checked"
+            onChange={(e) => setChecked(e.checked)}
+            checked={checked}
+          ></Checkbox>
+          <label htmlFor="checked">Checked</label>
+        </div>
         <Button onClick={createNewPerson} label="Create" severity="success" />
       </div>
     </>

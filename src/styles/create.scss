@@ -1,7 +1,20 @@
 .create-wrapper {
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
   flex-direction: column;
   max-width: 400px;
   margin: 0 auto;
+
+  .checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .name-wrapper {
+    display: flex;
+flex-direction: column;
+    gap: 0.5rem;
+
+  }
 }

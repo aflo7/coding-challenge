@@ -35,13 +35,12 @@ const Delete = () => {
       .then(function (response) {
         success();
         console.log(response);
-        setId('')
+        setId('');
       })
       .catch(function (error) {
         showErrorMessage();
         console.log(error);
-        setId('')
-
+        setId('');
       });
   };
 
@@ -50,13 +49,16 @@ const Delete = () => {
       <Toast ref={toast} />
 
       <div className="delete-wrapper">
-        <div>ID</div>
+        <div className='id-wrapper'>
+          <div>ID</div>
 
-        <InputText
-          required
-          value={id}
-          onChange={(e) => setId(e.target.value)}
-        />
+          <InputText
+            className="w-full"
+            required
+            value={id}
+            onChange={(e) => setId(e.target.value)}
+          />
+        </div>
         <Button onClick={deletePersonById} label="Delete" severity="danger" />
       </div>
     </>

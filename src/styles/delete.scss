@@ -1,7 +1,13 @@
 .delete-wrapper {
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
   flex-direction: column;
   max-width: 400px;
   margin: 0 auto;
+
+  .id-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
