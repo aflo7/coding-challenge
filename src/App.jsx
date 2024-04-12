@@ -7,8 +7,9 @@ import Person from './components/people/Person';
 import Create from './components/create/Create';
 import Delete from './components/delete/Delete';
 // import 'primereact/resources/themes/viva-light/theme.css';
-import 'primereact/resources/themes/bootstrap4-light-blue/theme.css'
+import 'primereact/resources/themes/bootstrap4-light-blue/theme.css';
 import './styles/app.scss';
+import { AiFillHome } from 'react-icons/ai';
 
 const Home = () => {
   return (
@@ -30,13 +31,16 @@ const Home = () => {
 const App = () => {
   return (
     <>
-      <nav>
-        <div className="menu-wrapper">
-          <MdMenu className="menu-icon" />
-        </div>
-      </nav>
-      <div className="app-wrapper">
-        <HashRouter basename="">
+      <HashRouter basename="">
+        <nav>
+          <Link to="/">
+            <div className="menu-wrapper">
+              <AiFillHome className="menu-icon" />
+              <div>Home</div>
+            </div>
+          </Link>
+        </nav>
+        <div className="app-wrapper">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/person/create" element={<Create />} />
@@ -45,8 +49,8 @@ const App = () => {
             <Route path="/people/all" element={<All />} />
             <Route path="/people" element={<Person />} />
           </Routes>
-        </HashRouter>
-      </div>
+        </div>
+      </HashRouter>
     </>
   );
 };
