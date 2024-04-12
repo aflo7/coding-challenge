@@ -47,10 +47,10 @@ const Person = () => {
                 <Checkbox checked={person.check}></Checkbox>
               </td>
               <td>
-                <Button severity="primary">Edit</Button>
+                <Button severity="primary" disabled>Edit</Button>
               </td>
               <td>
-                <Button severity="danger">Delete</Button>
+                <Button severity="danger" disabled>Delete</Button>
               </td>
             </tr>
           </tbody>
