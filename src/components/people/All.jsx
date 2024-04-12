@@ -4,10 +4,7 @@ import axios from 'axios';
 import '../../styles/all.scss';
 import { Route, Link } from 'react-router-dom';
 import { InputText } from 'primereact/inputtext';
-
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+import sleep from '../../functions/sleep';
 
 const All = () => {
   const [people, setPeople] = useState();

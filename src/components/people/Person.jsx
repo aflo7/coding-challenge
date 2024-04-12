@@ -5,10 +5,7 @@ import '../../styles/person.scss';
 import { Button } from 'primereact/button';
 import { Checkbox } from 'primereact/checkbox';
 import { Toast } from 'primereact/toast';
-
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+import sleep from '../../functions/sleep';
 
 const Person = () => {
   const [person, setPerson] = useState();
