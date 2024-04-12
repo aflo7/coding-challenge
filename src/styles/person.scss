@@ -1,4 +1,7 @@
 .person-wrapper {
+  .loading-text{
+text-align: center;
+  }
   table {
     border-collapse: collapse;
     width: 100%;
@@ -14,7 +17,7 @@
 
   
   tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: lightgray;
   }
 
 }
