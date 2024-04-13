@@ -7,6 +7,7 @@ import { Button } from 'primereact/button';
 import { Checkbox } from 'primereact/checkbox';
 import { Toast } from 'primereact/toast';
 import sleep from '../../functions/sleep';
+import { InputText } from 'primereact/inputtext';
 
 const Person = () => {
   const [person, setPerson] = useState();
@@ -19,7 +20,7 @@ const Person = () => {
   const [modalName, setModalName] = useState('');
   const [modalDate, setModalDate] = useState('');
   const [modalCheck, setModalCheck] = useState('');
-  const [modalId, setModalId] = useState()
+  const [modalId, setModalId] = useState();
 
   useEffect(() => {
     if (!id) return;
@@ -67,7 +68,7 @@ const Person = () => {
   };
 
   const handleUpdate = () => {
-    if (!modalId) return
+    if (!modalId) return;
 
     axios({
       method: 'patch',
@@ -77,34 +78,34 @@ const Person = () => {
         date: new Date(),
         check: modalCheck
       }
-    }).then((res) => {
-      navigate(0)
-    }).catch((error ) => {
-      showErrorMessage();
-
     })
+      .then((res) => {
+        navigate(0);
+      })
+      .catch((error) => {
+        showErrorMessage();
+      });
   };
 
   const footerContent = (
     <div className="footer-wrapper">
-    <Button
-      className="btn"
-      label="Cancel"
+      <Button
+        className="btn"
+        label="Cancel"
+        severity="danger"
+        onClick={() => setVisible(false)}
+        
+      />
 
-      severity="danger"
-      onClick={() => setVisible(false)}
-      // autoFocus
-    />
-
-    <Button
-      className="btn"
-      label="Update"
-      onClick={() => {
-        setVisible(false);
-        handleUpdate();
-      }}
-    />
-  </div>
+      <Button
+        className="btn"
+        label="Update"
+        onClick={() => {
+          setVisible(false);
+          handleUpdate();
+        }}
+      />
+    </div>
   );
 
   return (
@@ -126,33 +127,31 @@ const Person = () => {
           <div className="dialog-content">
             <div className="name-wrapper">
               <div>Name</div>
-              <input
+
+              <InputText
                 value={modalName}
                 onChange={(e) => setModalName(e.target.value)}
-                type="text"
               />
             </div>
 
             <div className="date-wrapper">
               <div>Date</div>
-              <input
-                className="date-textbox"
+
+              <InputText
                 value={modalDate}
-                type="text"
-                readOnly={true}
+                onChange={(e) => setModalDate(e.target.value)}
+                disabled
               />
             </div>
 
             <div className="checkbox-wrapper">
               <div>Check</div>
-              <input
+
+              <Checkbox
                 checked={modalCheck}
-                onChange={() => setModalCheck(prev => !prev)}
-                type="checkbox"
+                onChange={() => setModalCheck((prev) => !prev)}
               />
             </div>
-
-           
           </div>
         </Dialog>
       </div>
@@ -185,7 +184,7 @@ const Person = () => {
                       setModalName(person.name);
                       setModalDate(person.date);
                       setModalCheck(person.check);
-                      setModalId(person._id)
+                      setModalId(person._id);
                     }}
                   >
                     Edit
