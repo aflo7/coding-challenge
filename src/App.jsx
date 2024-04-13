@@ -10,12 +10,14 @@ import Delete from './components/delete/Delete';
 import 'primereact/resources/themes/bootstrap4-light-blue/theme.css';
 import './styles/app.scss';
 import { AiFillHome } from 'react-icons/ai';
+import { PrimeReactProvider } from 'primereact/api';
 
 const Home = () => {
   return (
     <div className="home-wrapper">
       <Link to="/people/all">
         <div className="link">Search</div>
+        
       </Link>
 
       <Link to="/person/create">
@@ -29,8 +31,12 @@ const Home = () => {
   );
 };
 const App = () => {
+  const value = {
+    ripple: true
+  };
+
   return (
-    <>
+    <PrimeReactProvider value={value}>
       <HashRouter basename="">
         <nav>
           <Link to="/">
@@ -51,7 +57,7 @@ const App = () => {
           </Routes>
         </div>
       </HashRouter>
-    </>
+    </PrimeReactProvider>
   );
 };
 

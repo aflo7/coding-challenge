@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Checkbox } from 'primereact/checkbox';
 import axios from 'axios';
 import '../../styles/all.scss';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { InputText } from 'primereact/inputtext';
 import sleep from '../../functions/sleep';
 
@@ -23,8 +23,6 @@ const All = () => {
 
   useEffect(() => {
     if (!searchValue) return;
-
-    // console.log(searchValue);
     setRegex(new RegExp(searchValue))
   }, [searchValue]);
 

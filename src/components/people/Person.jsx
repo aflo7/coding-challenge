@@ -90,9 +90,10 @@ const Person = () => {
     <Button
       className="btn"
       label="Cancel"
+
       severity="danger"
       onClick={() => setVisible(false)}
-      autoFocus
+      // autoFocus
     />
 
     <Button
