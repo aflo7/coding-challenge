@@ -11,21 +11,21 @@ import 'primereact/resources/themes/bootstrap4-light-blue/theme.css';
 import './styles/app.scss';
 import { AiFillHome } from 'react-icons/ai';
 import { PrimeReactProvider } from 'primereact/api';
-
+import { Ripple } from 'primereact/ripple';
 const Home = () => {
   return (
     <div className="home-wrapper">
       <Link to="/people/all">
-        <div className="link">Search</div>
+        <div className="link p-ripple">Search<Ripple/></div>
         
       </Link>
 
       <Link to="/person/create">
-        <div className="link">Create</div>
+        <div className="link p-ripple">Create<Ripple/></div>
       </Link>
 
       <Link to="/person/delete">
-        <div className="link">Delete</div>
+        <div className="link p-ripple">Delete<Ripple/></div>
       </Link>
     </div>
   );
@@ -40,9 +40,10 @@ const App = () => {
       <HashRouter basename="">
         <nav>
           <Link to="/">
-            <div className="menu-wrapper">
+            <div className="menu-wrapper p-ripple">
               <AiFillHome className="menu-icon" />
               <div>Home</div>
+              <Ripple/>
             </div>
           </Link>
         </nav>
