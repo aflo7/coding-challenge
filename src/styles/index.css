@@ -4,9 +4,11 @@
 
 body {
   margin: 0;
+  background: url(../assets/struckaxiom.webp) repeat;
+  background-repeat: repeat;
 }
 
-h1 {
+h1, p {
   margin: 0;
 }
 

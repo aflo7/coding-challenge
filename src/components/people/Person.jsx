@@ -115,7 +115,7 @@ const Person = () => {
           visible={visible}
           className="dialog-wrapper"
           style={{
-            maxWidth: '600px',
+            maxWidth: '400px',
             width: '100%',
             border: '1px solid black'
           }}

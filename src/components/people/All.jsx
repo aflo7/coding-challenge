@@ -28,8 +28,8 @@ const All = () => {
 
   return (
     <div className="all-people-wrapper">
+      <div className="table-wrapper">
       {people ? (
-        <div className="table-wrapper">
           <div className="search-wrapper">
             <div>Search</div>
             <InputText
@@ -38,7 +38,7 @@ const All = () => {
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
             />
-          </div>
+          
           <table>
             <tbody>
               <tr>
@@ -71,6 +71,7 @@ const All = () => {
       ) : (
         <p className="loading-text">Loading...</p>
       )}
+      </div>
     </div>
   );
 };

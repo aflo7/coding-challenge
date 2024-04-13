@@ -1,12 +1,23 @@
 .person-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 1px solid black;
+
   .loading-text {
     text-align: center;
   }
+  background-color: lightgray;
+  padding: 1rem;
+  border-radius: 5px;
+
   table {
     border-collapse: collapse;
-    width: 100%;
-    max-width: 1000px;
     margin: 0 auto;
+    width: 100%;
+    background-color: lightgray;
+    padding: 1rem;
+    border-radius: 5px;
   }
 
   td,
@@ -18,6 +29,10 @@
 
   tr:nth-child(even) {
     background-color: lightgray;
+  }
+
+  tr:nth-child(odd) {
+    background-color: white;
   }
 
   .edit-table-cell {
@@ -63,8 +78,8 @@
 .dialog-wrapper {
   .footer-wrapper {
     display: flex;
-    gap: 1rem;
-    
+    gap: 0.5rem;
+
     .btn {
       flex: 1;
     }

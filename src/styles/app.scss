@@ -16,10 +16,13 @@
     padding: 1rem;
     border-radius: 5px;
     cursor: pointer;
+    background-color: lightgray;
+
   }
 
   .link:hover {
-    background-color: lightgray;
+    background-color: rgb(184, 184, 184);
+
   }
 }
 
@@ -41,6 +44,8 @@ nav {
   cursor: pointer;
   border-radius: 5px;
   color: black;
+    background-color: lightgray;
+
 }
 .menu-wrapper:hover {
   background-color: rgb(184, 184, 184);
