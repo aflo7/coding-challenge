@@ -28,22 +28,14 @@ nav {
 
 .menu-wrapper {
   border: 1px solid black;
-  width: fit-content;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-
   padding: 1rem;
   cursor: pointer;
   border-radius: 5px;
-  // margin: 0 auto;
   color: black;
-  
 }
 .menu-wrapper:hover {
   background-color: rgb(184, 184, 184);
-}
-
-.menu-icon {
-  // font-size: 1.5rem;
 }

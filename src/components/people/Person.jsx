@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
-import { useSearchParams,useNavigate } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import '../../styles/person.scss';
+import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import { Checkbox } from 'primereact/checkbox';
 import { Toast } from 'primereact/toast';
@@ -13,6 +14,12 @@ const Person = () => {
   const id = searchParams.get('id');
   const toast = useRef(null);
   const navigate = useNavigate();
+  const [visible, setVisible] = useState(false);
+
+  const [modalName, setModalName] = useState('');
+  const [modalDate, setModalDate] = useState('');
+  const [modalCheck, setModalCheck] = useState('');
+  const [modalId, setModalId] = useState()
 
   useEffect(() => {
     if (!id) return;
@@ -52,21 +59,103 @@ const Person = () => {
     axios
       .delete(`https://test.epdet.org/api/applicant/?id=${id}`)
       .then(function (response) {
-        // success();
-        // console.log(response);
-        // setId('')
-        // Navigate('')
-        navigate("/");
+        navigate('/');
       })
       .catch(function (error) {
         showErrorMessage();
-        // console.log(error);
-        // setId('')
       });
   };
 
+  const handleUpdate = () => {
+    if (!modalId) return
+
+    axios({
+      method: 'patch',
+      url: `https://test.epdet.org/api/applicant/?id=${modalId}`,
+      data: {
+        name: modalName,
+        date: new Date(),
+        check: modalCheck
+      }
+    }).then((res) => {
+      navigate(0)
+    }).catch((error ) => {
+      showErrorMessage();
+
+    })
+  };
+
+  const footerContent = (
+    <div className="footer-wrapper">
+    <Button
+      className="btn"
+      label="Cancel"
+      severity="danger"
+      onClick={() => setVisible(false)}
+      autoFocus
+    />
+
+    <Button
+      className="btn"
+      label="Update"
+      onClick={() => {
+        setVisible(false);
+        handleUpdate();
+      }}
+    />
+  </div>
+  );
+
   return (
     <>
+      <div className="card flex justify-content-center">
+        <Dialog
+          header="Edit"
+          visible={visible}
+          className="dialog-wrapper"
+          style={{
+            maxWidth: '600px',
+            width: '100%',
+            border: '1px solid black'
+          }}
+          onHide={() => setVisible(false)}
+          footer={footerContent}
+          draggable={false}
+        >
+          <div className="dialog-content">
+            <div className="name-wrapper">
+              <div>Name</div>
+              <input
+                value={modalName}
+                onChange={(e) => setModalName(e.target.value)}
+                type="text"
+              />
+            </div>
+
+            <div className="date-wrapper">
+              <div>Date</div>
+              <input
+                className="date-textbox"
+                value={modalDate}
+                type="text"
+                readOnly={true}
+              />
+            </div>
+
+            <div className="checkbox-wrapper">
+              <div>Check</div>
+              <input
+                checked={modalCheck}
+                onChange={() => setModalCheck(prev => !prev)}
+                type="checkbox"
+              />
+            </div>
+
+           
+          </div>
+        </Dialog>
+      </div>
+
       <Toast ref={toast} />
 
       <div className="person-wrapper">
@@ -86,13 +175,27 @@ const Person = () => {
                 <td>
                   <Checkbox checked={person.check}></Checkbox>
                 </td>
-                <td>
-                  <Button severity="primary" disabled>
+                <td className="edit-table-cell">
+                  <Button
+                    className="btn"
+                    severity="primary"
+                    onClick={() => {
+                      setVisible(true);
+                      setModalName(person.name);
+                      setModalDate(person.date);
+                      setModalCheck(person.check);
+                      setModalId(person._id)
+                    }}
+                  >
                     Edit
                   </Button>
                 </td>
-                <td>
-                  <Button onClick={deletePerson} severity="danger">
+                <td className="delete-table-cell">
+                  <Button
+                    className="btn"
+                    onClick={deletePerson}
+                    severity="danger"
+                  >
                     Delete
                   </Button>
                 </td>
