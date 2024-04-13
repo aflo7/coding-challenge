@@ -40,9 +40,10 @@ const App = () => {
       <HashRouter basename="">
         <nav>
           <Link to="/">
-            <div className="menu-wrapper">
+            <div className="menu-wrapper p-ripple">
               <AiFillHome className="menu-icon" />
               <div>Home</div>
+              <Ripple/>
             </div>
           </Link>
         </nav>
