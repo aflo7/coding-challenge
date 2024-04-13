@@ -12,22 +12,68 @@ import './styles/app.scss';
 import { AiFillHome } from 'react-icons/ai';
 import { PrimeReactProvider } from 'primereact/api';
 import { Ripple } from 'primereact/ripple';
+import { Card } from 'primereact/card';
+import people from './assets/people.jpeg';
+import people2 from './assets/people2.jpeg';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 const Home = () => {
+  const [count, setCount] = useState();
+
+  useEffect(() => {
+    axios.get('https://test.epdet.org/api/applicant').then((response) => {
+      setCount(response.data.length);
+    });
+  }, []);
+
+  const header = (
+    <img
+      alt="Card"
+      // src="https://primefaces.org/cdn/primereact/images/usercard.png"
+      src={people2}
+    />
+  );
+
   return (
-    <div className="home-wrapper">
-      <Link to="/people/all">
-        <div className="link p-ripple">Search<Ripple/></div>
+    <>
+      <div className="home-wrapper">
         
-      </Link>
 
-      <Link to="/person/create">
-        <div className="link p-ripple">Create<Ripple/></div>
-      </Link>
+        <Link to="/people/all">
+          <div className="link p-ripple">
+            Search
+            <Ripple />
+          </div>
+        </Link>
 
-      <Link to="/person/delete">
-        <div className="link p-ripple">Delete<Ripple/></div>
-      </Link>
-    </div>
+        <Link to="/person/create">
+          <div className="link p-ripple">
+            Create
+            <Ripple />
+          </div>
+        </Link>
+
+        <Link to="/person/delete">
+          <div className="link p-ripple">
+            Delete
+            <Ripple />
+          </div>
+        </Link>
+
+        <Card
+          className="the-card p-ripple"
+          title={count}
+          subTitle="People"
+          header={header}
+          style={{
+            maxWidth: '200px',
+            border: '1px solid black',
+            // paddingTop: '1rem',
+            boxShadow: 'none'
+          }}
+        />
+      </div>
+    </>
   );
 };
 const App = () => {
@@ -43,7 +89,7 @@ const App = () => {
             <div className="menu-wrapper p-ripple">
               <AiFillHome className="menu-icon" />
               <div>Home</div>
-              <Ripple/>
+              <Ripple />
             </div>
           </Link>
         </nav>
