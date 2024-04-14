@@ -17,7 +17,7 @@ import axios from 'axios';
 import { ProgressSpinner } from 'primereact/progressspinner';
 import sleep from './functions/sleep';
 import { IoIosAdd } from 'react-icons/io';
-import { AiOutlineSearch, AiOutlineDelete } from 'react-icons/ai';
+import { AiOutlineSearch, AiOutlineDelete, AiOutlineHome } from 'react-icons/ai';
 import { IoAddSharp } from 'react-icons/io5';
 
 const Home = () => {
@@ -100,7 +100,7 @@ const App = () => {
         <nav>
           <Link to="/">
             <div className="menu-wrapper p-ripple">
-              <AiFillHome className="menu-icon" />
+              <AiOutlineHome className="menu-icon" />
               <div>Home</div>
               <Ripple />
             </div>
