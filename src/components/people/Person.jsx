@@ -8,6 +8,7 @@ import { Checkbox } from 'primereact/checkbox';
 import { Toast } from 'primereact/toast';
 import sleep from '../../functions/sleep';
 import { InputText } from 'primereact/inputtext';
+import { ProgressSpinner } from 'primereact/progressspinner';
 
 const Person = () => {
   const [person, setPerson] = useState();
@@ -94,7 +95,6 @@ const Person = () => {
         label="Cancel"
         severity="danger"
         onClick={() => setVisible(false)}
-        
       />
 
       <Button
@@ -203,7 +203,14 @@ const Person = () => {
             </tbody>
           </table>
         ) : (
-          <p className="loading-text">Loading...</p>
+          // <p className="loading-text">Loading...</p>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <ProgressSpinner
+              style={{ width: '40px', height: '40px' }}
+              strokeWidth="6"
+              animationDuration=".5s"
+            />
+          </div>
         )}
       </div>
     </>

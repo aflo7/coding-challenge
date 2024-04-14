@@ -5,6 +5,7 @@ import '../../styles/all.scss';
 import { Link } from 'react-router-dom';
 import { InputText } from 'primereact/inputtext';
 import sleep from '../../functions/sleep';
+import { ProgressSpinner } from 'primereact/progressspinner';
 
 const All = () => {
   const [people, setPeople] = useState();
@@ -78,7 +79,11 @@ const All = () => {
             </table>
           </div>
         ) : (
-          <p className="loading-text">Loading...</p>
+          <ProgressSpinner
+            style={{ width: '40px', height: '40px' }}
+            strokeWidth="6"
+            animationDuration=".5s"
+          />
         )}
       </div>
     </div>
